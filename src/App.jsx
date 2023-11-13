@@ -5,6 +5,8 @@ import { youtube_parser } from "./utils";
 function App() {
   const inputUrlRef = useRef();
   const [urlResult, setUrlResult] = useState(null);
+  const [titleResult, setTitleResult] = useState(null);
+  const [sizeResult, setSizeResult] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,6 +25,18 @@ function App() {
     };
     axios(options)
       .then((res) => setUrlResult(res.data.link))
+      .catch((err) => console.log(err));
+
+    inputUrlRef.current.value = "";
+
+    axios(options)
+      .then((nam) => setTitleResult(nam.data.title))
+      .catch((err) => console.log(err));
+
+    inputUrlRef.current.value = "";
+
+    axios(options)
+      .then((siz) => setSizeResult(siz.data.filesize))
       .catch((err) => console.log(err));
 
     inputUrlRef.current.value = "";
@@ -48,7 +62,16 @@ function App() {
             Search
           </button>
         </form>
+        <p className=""></p>
 
+        {titleResult ? (
+          <p className="titleDownloaded">
+            Your Video : <span className="title">{titleResult}</span>{" "}
+            <span>{(sizeResult / 1024 / 1024).toFixed(2)}MB</span>
+          </p>
+        ) : (
+          ""
+        )}
         {urlResult ? (
           <a
             target="_blank"

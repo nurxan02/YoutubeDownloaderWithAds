@@ -10,12 +10,16 @@ body {
   height: 100vh;
   color: white;
   background-color: #c519b9;
+  background-image: linear-gradient(10deg, #3333ff, #c519b9);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .app {
   max-width: 900px;
   margin: 0 auto;
   padding: 0 1rem;
+  height: 50vh;
 }
 .logo {
   font-family: "Montserrat", sans-serif;
@@ -24,10 +28,12 @@ body {
   display: inline-block;
 }
 .content {
+  margin-top: 40px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 15rem;
+  justify-content: flex-end;
 }
 .content_title {
   font-weight: 700;
@@ -62,7 +68,7 @@ body {
   margin-bottom: 1rem;
 }
 .form .form_button {
-  width: 80%;
+  /* width: 80%;
   height: 50px;
   background: #639c5b;
   border: none;
@@ -72,36 +78,87 @@ body {
   cursor: pointer;
   margin-bottom: 3rem;
   border-radius: 10px;
-  transition: 0.3s all;
+  transition: 0.3s all; */
+  border-radius: 5px;
+  width: 80%;
+  height: 50px;
+  background-color: transparent;
+  border: 2px solid #eccfff;
+  color: #eccfff;
+  font-size: 20px;
+  transition: 0.3s;
 }
 .form_button:hover {
-  background: #c57fc0;
+  /* background: #c57fc0;
   border: 0px solid #abffa0;
-  color: #abffa0;
+  color: white;
   box-shadow: 0px 0px 20px -10px rgb(0, 0, 0);
+  transform: scale(1.03); */
+
+  background-color: #ffffff;
+  border: 2px solid #fff;
+  color: #3333ff;
+  box-shadow: 0px 0px 20px -10px #eccfff;
   transform: scale(1.03);
+  -webkit-mask-image: linear-gradient(
+    -75deg,
+    rgba(0, 0, 0, 0.6) 30%,
+    #000 50%,
+    rgba(0, 0, 0, 0.6) 70%
+  );
+  -webkit-mask-size: 200%;
+  animation: shine 1s infinite;
 }
 
 .download_btn {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
-  box-shadow: 0px 0px 20px -10px rgb(0, 0, 0);
-  background: rgb(50, 50, 200);
-  height: 50px;
-  width: 130px;
-  transition: 0.3s;
-  border-radius: 10px;
   font-weight: 700;
   text-decoration: none;
+  border-radius: 5px;
+  width: 140px;
+  height: 50px;
+  border: 2px solid #eccfff;
+  background-color: transparent;
+  color: #eccfff;
+  font-size: 20px;
+  transition: 0.3s;
 }
 .download_btn:hover {
-  background: #c57fc0;
-  border: 0px solid #abffa0;
-  color: rgb(0, 0, 182);
-  box-shadow: 0px 0px 20px -10px rgb(0, 0, 0);
+  background-color: #ffffff;
+  border: 2px solid #fff;
+  color: #3333ff;
+  box-shadow: 0px 0px 20px -10px #eccfff;
   transform: scale(1.03);
+  -webkit-mask-image: linear-gradient(
+    -75deg,
+    rgba(0, 0, 0, 0.6) 30%,
+    #000 50%,
+    rgba(0, 0, 0, 0.6) 70%
+  );
+  -webkit-mask-size: 200%;
+  animation: shine 1s infinite;
+}
+.titleDownloaded {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px 10px 20px;
+  font-size: 20px;
+  border: 1px solid white;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  margin-bottom: 20px;
+  margin-top: 40px;
+}
+.titleDownloaded .title {
+  font-style: italic;
+  padding-left: 5px;
+  margin-right: 10px;
+  color: #eccfff;
+  font-weight: bold;
 }
 
 .copyright {
@@ -124,9 +181,25 @@ body {
 }
 @media screen and (max-width: 600px) {
   .content {
-    margin-bottom: 15rem;
+    margin-top: 10rem;
   }
   .content_title {
     font-size: 40px;
+  }
+  .titleDownloaded {
+    font-size: 12px;
+  }
+  .titleDownloaded .title {
+    font-size: 15px;
+    margin-right: 10px;
+  }
+}
+@-webkit-keyframes shine {
+  from {
+    -webkit-mask-position: 150%;
+  }
+
+  to {
+    -webkit-mask-position: -20%;
   }
 }
