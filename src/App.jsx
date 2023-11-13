@@ -66,13 +66,13 @@ function App() {
 
         {titleResult ? (
           <p className="titleDownloaded">
-            Your Video : <span className="title">{titleResult}</span>{" "}
+            Your Video: <span className="title">{titleResult}</span>{" "}
             <span>{(sizeResult / 1024 / 1024).toFixed(2)}MB</span>
           </p>
         ) : (
           ""
         )}
-        {urlResult ? (
+        {titleResult ? (
           <a
             target="_blank"
             rel="noreferrer"
