@@ -83,7 +83,25 @@ body {
 }
 
 .download_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: white;
+  box-shadow: 0px 0px 20px -10px rgb(0, 0, 0);
+  background: rgb(50, 50, 200);
+  height: 50px;
+  width: 130px;
+  transition: 0.3s;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.download_btn:hover {
+  background: #c57fc0;
+  border: 0px solid #abffa0;
+  color: rgb(0, 0, 182);
+  box-shadow: 0px 0px 20px -10px rgb(0, 0, 0);
+  transform: scale(1.03);
 }
 
 .copyright {
