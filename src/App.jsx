@@ -4,9 +4,9 @@ import { youtube_parser } from "./utils";
 
 function App() {
   const inputUrlRef = useRef();
+  const [sizeResult, setSizeResult] = useState(null);
   const [urlResult, setUrlResult] = useState(null);
   const [titleResult, setTitleResult] = useState(null);
-  const [sizeResult, setSizeResult] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,13 +30,13 @@ function App() {
     inputUrlRef.current.value = "";
 
     axios(options)
-      .then((nam) => setTitleResult(nam.data.title))
+      .then((siz) => setSizeResult(siz.data.filesize))
       .catch((err) => console.log(err));
 
     inputUrlRef.current.value = "";
 
     axios(options)
-      .then((siz) => setSizeResult(siz.data.filesize))
+      .then((nam) => setTitleResult(nam.data.title))
       .catch((err) => console.log(err));
 
     inputUrlRef.current.value = "";
